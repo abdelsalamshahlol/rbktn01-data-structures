@@ -7,14 +7,14 @@ var Queue = function() {
   var back = 0;
 
   someInstance.storage = storage;
-  
+
   // Implement the methods below
   someInstance.enqueue = function(value) {
     storage[back++] = value;
   };
 
   someInstance.dequeue = function() {
-    if(someInstance.size() <= 0){
+    if (someInstance.size() <= 0) {
       return;
     }
 
