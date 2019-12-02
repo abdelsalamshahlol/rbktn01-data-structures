@@ -14,10 +14,10 @@ var Stack = function() {
 
   someInstance.pop = function() {
     // get the last value 
-    var deletes = storage[key - 1]; 
-    // decrease the size of storage
-    delete storage[key - 1];
     key--;
+    var deletes = storage[key]; 
+    // decrease the size of storage
+    delete storage[key];
     // return the last value
     return deletes;
   };
