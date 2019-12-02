@@ -15,7 +15,7 @@ var stackMethods = {
   },
 
   pop: function() {
-    if (this.key < 0) {
+    if (this.key <= 0) {
       return;
     }
     --this.key;
