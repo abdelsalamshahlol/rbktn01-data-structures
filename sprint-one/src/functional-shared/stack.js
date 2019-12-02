@@ -25,7 +25,7 @@ var stackMethods = {
   },
 
   size: function() {
-
+    return this.key;
   }
 };
 
