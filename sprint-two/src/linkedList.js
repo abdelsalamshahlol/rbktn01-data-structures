@@ -23,11 +23,31 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    let next = list.head.next;
-    list.head = next;
+    let removedNode = list.head;
+    list.head = removedNode.next;
+
+    return removedNode.value;
   };
 
   list.contains = function(target) {
+    //  IF the tail value
+    //    return true
+    if (list.tail.value === target) {
+      return true;
+    } else {
+      let currNode = list.head;
+      //    While there is next
+      while (currNode !== null) {
+        //      Check the next of tail
+        if (currNode.value === target) {
+          return true;
+        }
+
+        currNode = currNode.next;
+      }
+    }
+
+    return false;
   };
 
   return list;
