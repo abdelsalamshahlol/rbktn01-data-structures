@@ -13,8 +13,10 @@
 
 var LimitedArray = function(limit) {
   var storage = [];
-
   var limitedArray = {};
+
+  limitedArray.storage = storage;
+  
   limitedArray.get = function(index) {
     checkLimit(index);
     return storage[index];
