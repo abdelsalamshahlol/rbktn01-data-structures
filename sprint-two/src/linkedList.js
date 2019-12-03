@@ -4,18 +4,27 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
+    // Create new node
     let node = Node(value);
-    // Check if the list tail is empty
-    // list.head = list.tail;
-    node.next = list.head;
-    list.head = node;
-    list.tail = list.head;
-    // list.head = list.head;
+    // If head doesn't have a value
+    if (!list.head) {
+      // Assign the first node to it
+      list.head = node;
+    }
+
+    // If tail is not null
+    if (list.tail) {
+      // Assign tail next to the new node
+      list.tail.next = node;
+    }
+
+    // Assign the tail to new node
+    list.tail = node;
   };
 
   list.removeHead = function() {
-    let next = list.head;
-    list.head = list.next.head;
+    let next = list.head.next;
+    list.head = next;
   };
 
   list.contains = function(target) {
