@@ -40,7 +40,7 @@ BinarySearchTree.prototype.contains = function(value) {
   // call method on the right 
     return this.right.contains(value);
   // Else IF value < node value AND right is defined
-  }else if ( value < this.value && this.left ) {
+  } else if ( value < this.value && this.left ) {
     return this.left.contains(value);
   }
   
@@ -48,16 +48,24 @@ BinarySearchTree.prototype.contains = function(value) {
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(callback) {
-  let node = arguments[1] || this;
+  // Assign this to node variable
+  let node = this;
+
+  // Invoke Callback function on Node value
   callback(this.value);
 
-  if ( !node.left && !node.right ) {
+  // Base Case
+  if ( !node.value ) {
     return;
   }
 
+  // IF there's Left value recurse 
   if ( node.left ) {
     this.left.depthFirstLog(callback);
-  }else if ( node.right ) {
+  }  
+  
+  // IF there's Left value recurse 
+  if ( node.right ) {
     this.right.depthFirstLog(callback);
   }
 };
