@@ -5,27 +5,30 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value) {
-  // First create a node
+  // Create new Node
   let node = new BinarySearchTree(value);
 
-  // If new node value < parent node value
+  // IF new node value < Parent node value
   if ( value < this.value ) {
+    // IF node has value on left
     if ( this.left ) {
+      // Call the method again on left 
       this.left.insert(value);
     } else {
-      //	Place on left
+      //	Place value on left
       this.left = node;
     }
-    // If new node value > parent node value
-  } else if ( value > this.value ) {
+    // IF new node value > Parent node value
+  } else {
+    // IF node has a value on right
     if ( this.right ) {
+      // Call the method again right
       this.right.insert(value);
     } else {
-      //  Place on right
+      //  Place value on right
       this.right = node;
     }
   }
-  // return node;
 };
 
 BinarySearchTree.prototype.contains = function(value) {
