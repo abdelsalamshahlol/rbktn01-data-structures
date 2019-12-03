@@ -5,20 +5,12 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     let node = Node(value);
-    // console.log(node)
     // Check if the list tail is empty
-    if ( !list.tail ) {
-      list.tail = node;
-    }
-
-    // while(list.tail.next !== null){
-    //   addToTail(value)
-    // }
-    
-    // else if(!list.tail.next){
-    //   list.tail.next = node;
-    // }
-
+    // list.head = list.tail;
+    node.next = list.head;
+    list.head = node;
+    list.tail = list.head;
+    // list.head = list.head;
   };
 
   list.removeHead = function() {

@@ -9,7 +9,7 @@ HashTable.prototype.insert = function(k, v) {
   var bucket = this._storage.get(index);
   var tuple = [k, v];
   
-  if( !bucket ){
+  if ( !bucket ) {
   	bucket = [];
   }
   // if (bucket)
@@ -19,12 +19,12 @@ HashTable.prototype.insert = function(k, v) {
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  var  bucket =  this._storage.get(index);
-    for (var i = 0 ; i < bucket.length; i ++) {
-      if ( k === bucket[i][0] ) {
+  var bucket = this._storage.get(index);
+  for (var i = 0; i < bucket.length; i ++) {
+    if ( k === bucket[i][0] ) {
       	return bucket[i][1];
-      }
     }
+  }
 };
 
 HashTable.prototype.remove = function(k) {
