@@ -59,12 +59,12 @@ BinarySearchTree.prototype.depthFirstLog = function(callback) {
     return;
   }
 
-  // IF there's Left value recurse 
+  // IF there's Left value recurse on Left
   if ( node.left ) {
     this.left.depthFirstLog(callback);
   }  
-  
-  // IF there's Left value recurse 
+
+  // IF there's Left value recurse on right
   if ( node.right ) {
     this.right.depthFirstLog(callback);
   }
