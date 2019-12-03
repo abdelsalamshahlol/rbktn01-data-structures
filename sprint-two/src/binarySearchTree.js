@@ -32,11 +32,34 @@ BinarySearchTree.prototype.insert = function(value) {
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-  // body...
+  // IF value equal this node value return true
+  if ( value === this.value ) {
+    return true;
+  // Else IF value > node value AND right is defined
+  } else if ( value > this.value && this.right ) {
+  // call method on the right 
+    return this.right.contains(value);
+  // Else IF value < node value AND right is defined
+  }else if ( value < this.value && this.left ) {
+    return this.left.contains(value);
+  }
+  
+  return false;
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(value) {
-  // body...
+BinarySearchTree.prototype.depthFirstLog = function(callback) {
+  let node = arguments[1] || this;
+  callback(this.value);
+
+  if ( !node.left && !node.right ) {
+    return;
+  }
+
+  if( node.left ) {
+    this.left.depthFirstLog(callback);
+  }else if( node.right ) {
+    this.right.depthFirstLog(callback);
+  }
 };
 
 
